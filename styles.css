@@ -1,0 +1,231 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* Container styles */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+@media screen and (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .container {
+        width: 75%;
+    }
+}
+/* GENERAL CLASSES */
+/* center text */
+.text-center {
+    text-align: center;
+}
+/* MARGIN UTILITIES */
+.mb-1 {
+    margin-bottom: 10px;
+}
+.mb-2 {
+    margin-bottom: 15px;
+}
+.mb-3 {
+    margin-bottom: 20px;
+}
+/* WIDTH UTILITIES */
+.w-100 {
+    width: 100%;
+}
+/* HEIGHT UTILITIES */
+.h-100 {
+    height: 100%;
+}
+/* DISPLAY UTILITIES */
+.d-block {
+    display: block;
+}
+/* FONT-SIZE UTILITIES */
+.fs-xxl {
+    font-size: xx-large;
+}
+.fs-xl {
+    font-size: x-large;
+}
+.fs-l {
+    font-size: large;
+}
+.b-none {
+    border: none !important;
+}
+/* header styles */
+#header .container {
+    width: 100% !important;
+    background-color: #e3fdfd;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: stretch;
+}
+.optionsBtn {
+    background-color: #d3d3d3;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: 0;
+}
+.optionsIcon {
+    color: #373737;
+    width: 35px;
+    height: 35px;
+}
+/* wordle grid styles */
+.wordleGrid {
+    display: grid;
+    row-gap: 10px;
+    justify-content: center;
+}
+/* letter div styles */
+.letterDiv {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    max-width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.letterNotTyped {
+    border-color: lightgray;
+}
+.letterTyped {
+    border-color: black;
+}
+.presentInPlace {
+    background-color: #39FF14;
+}
+.presentOutOfPlace {
+    background-color: #FC0;
+}
+.notPresent {
+    background-color: #d3d3d3;
+}
+/* close modal button */
+.closeModal {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+.closeIcon {
+    width: 40px;
+    height: 40px;
+    color: black;
+}
+/* modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modalContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+@-webkit-keyframes animatetop {
+    from {
+        top:-300px; 
+        opacity:0
+    } 
+    to {
+        top:0; 
+        opacity:1
+    }
+}
+  
+@keyframes animatetop {
+    from {
+        top:-300px; 
+        opacity:0
+    }
+    to {
+        top:0; 
+        opacity:1
+    }
+}
+.modalHeader, .modalBody {
+    padding: 5px 15px;
+}
+.modalHeader {
+    background-color: #87CEEB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modalBody {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+/* refresh button */
+.refreshBtn {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+}
+/* select length button */
+.selectLenBtn {
+    cursor: pointer;
+    padding: 20px;
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: bold;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+/* virtual keyboard */
+.virtualKeyboard {
+    width: 100%;
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    justify-items: center;
+}
+.keyboardBtn {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: xx-large;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: lightgray;
+}

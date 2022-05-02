@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Clone</title>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- header -->
+    <header id="header">
+        <div class="container mb-2">
+            <h1 class="logoText text-center">Wordle Clone</h1>
+            <div class="options mb-1">
+                <!-- reveal answer -->
+                <button class="optionsBtn" id="revealAnswerBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="optionsIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                    </svg>
+                </button>
+                <!-- settings -->
+                <button class="optionsBtn" id="settingsBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="optionsIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
+                <!-- help -->
+                <button class="optionsBtn" id="helpBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="optionsIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- wordle grid -->
+    <article>
+        <div class="container">
+            <div class="wordleGrid"></div>
+        </div>
+    </article>
+
+    <!-- virtual keyboard -->
+    <section>
+        <div class="container virtualKeyboard"></div>
+    </section>
+
+    <!-- Modal to show upon finding the word correctly -->
+    <div class="modal" id="youWonModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>WELL DONE!</h2>
+                <button class="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="closeIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody">
+                <h2>Congratulations!</h2>
+                <p>You guessed the word correctly.</p>
+                <button class="refreshBtn">Try again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>Settings</h2>
+                <button class="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="closeIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody">
+                <h3>Select word length:</h3>
+                <div>
+                    <button class="selectLenBtn fs-xxl" value="4">4</button>
+                    <button class="selectLenBtn fs-xxl" value="5">5</button>
+                    <button class="selectLenBtn fs-xxl" value="6">6</button>
+                </div>
+                <hr>
+                <button class="refreshBtn">Play again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- reveal answer modal -->
+    <div class="modal" id="revealAnswerModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>Better luck next time!</h2>
+                <button class="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="closeIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody">
+                <h2>Here's the answer:</h2>
+                <p id="showAnswerWord"></p>
+                <button class="refreshBtn">Try again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- help modal -->
+    <div class="modal" id="helpModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>Wordle rules</h2>
+                <button class="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="closeIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody">
+                <ul style="margin-left: 10px;">
+                    <li>You have to guess the Wordle in six goes or less.</li>
+                    <li>Press ENTER after every word to validate it.</li>
+                    <li>A correct letter turns green. (Correct letter in the correct position)</li>
+                    <li>A correct letter in the wrong place turns orange-yellow. (Correct letter in the wrong place)</li>
+                    <li>An incorrect letter turns gray. (Letter which is not present)</li>
+                </ul>
+                <div class="letterDiv fs-xxl b-none presentInPlace">A</div>
+                <div class="letterDiv fs-xxl b-none presentOutOfPlace">A</div>
+                <div class="letterDiv fs-xxl b-none notPresent">A</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
